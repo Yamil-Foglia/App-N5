@@ -1,0 +1,28 @@
+
+.background-img {
+    //--background: url(../../assets/chat.jpg);
+    --background:rgb(172, 172, 172);
+    --background:linear-gradient(rgb(75, 186, 231) 60%,rgb(7, 246, 146));
+}
+
+.placeholder-text {
+    --placeholder-color:white;
+    text-align: center;
+}
+
+.ion-background-color {
+    --ion-background-color:rgba(0, 0, 0, 0);
+}
+
+.opacity-complete {
+    --ion-disabled-opacity: 0;
+}
+
+.background-color {
+    --background:#4BBAE7;
+    --color:rgb(255, 255, 255);
+}
+
+.t-color {
+    --color:rgba(255, 255, 255, 0.514);
+}
