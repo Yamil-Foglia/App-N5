@@ -5,3 +5,10 @@ export interface IUser{
     role: string;
     gender: string;
 }
+
+
+export interface IMessage{
+    message: string;
+    user: string;
+    curse: boolean;
+}

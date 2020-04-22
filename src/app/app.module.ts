@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
   
   ],
   providers: [
@@ -31,6 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AngularFireAuth,
+    AngularFirestore
   ],
   bootstrap: [AppComponent]
 })

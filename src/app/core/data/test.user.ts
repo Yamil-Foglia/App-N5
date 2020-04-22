@@ -31,7 +31,7 @@ export const testUsers = [
         id: 5,
         email: 'tester@tester.com',
         pwd: '555555',
-        role: 'usuario',
+        role: 'tester',
         gender: 'femenino'
     }
 ]

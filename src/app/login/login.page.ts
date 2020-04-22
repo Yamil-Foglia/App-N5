@@ -12,7 +12,7 @@ import { testUsers } from '../core/data/test.user';
 })
 export class LoginPage implements OnInit {
 
-  public folder: string;
+ 	public folder: string;
 	public loginForm: FormGroup;
 	public isLoading: boolean;
 	public testUser: any;
@@ -41,25 +41,15 @@ export class LoginPage implements OnInit {
 			.then(x => {
 				this.isLoading = false;
 				console.log('email', x);
-				this.router.navigate(['/home/']);
-				//     this.toastService.create({
-				//         message: '¡Bienvenido!',
-				//         duration: 2000,
-				//         color: 'success',
-				//         animated: true,
-				//         position: 'top'
-				//     }).then(tt => tt.present())
+				let role = (this.loginForm.get('typeOfUser').value as IUser).role;
+				if((this.loginForm.get('typeOfUser').value as IUser).email == "anonimo@anonimo.com")
+						this.router.navigate(['/home/'+"anonimo"]);
+				else
+					this.router.navigate(['/home/'+role]);
 			})
 			.catch(x => {
 				this.isLoading = false;
 				console.error('error', x);
-				//     this.toastService.create({
-				//         message: 'El email y/o la contraseña son incorrectos. Reinténtelo.',
-				//         duration: 2000,
-				//         color: 'danger',
-				//         animated: true
-				//     }).then(tt => tt.present())
-				// })
 			});
 	}
 
