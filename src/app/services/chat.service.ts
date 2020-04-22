@@ -16,6 +16,7 @@ export class ChatService {
 	}
 
 	public getAll(): AngularFirestoreCollection<unknown> {
-		return this.db.collection('message');
+		//return this.db.collection('message');
+		return this.db.collection('message', ref => ref.orderBy('firebaseTimestamp', 'asc'));
 	}
 }

@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Message } from '../models/message';
 import { map } from 'rxjs/operators';
 import { ChatService } from '../services/chat.service';
 import { ActivatedRoute } from '@angular/router';
+import { IonContent } from '@ionic/angular';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -15,8 +17,10 @@ export class PpsAPage implements OnInit {
 
 	public typeOfUser: string;
 	public ppsaForms: FormGroup;
-	public messageList: any;
-	
+	public messageList: Observable<Message[]> = new Observable<Message[]>();
+
+	@ViewChild('content',{static: false}) scroll: IonContent;
+
 	constructor(private service: ChatService, private route: ActivatedRoute) { }
 
 	ngOnInit() {
@@ -29,7 +33,18 @@ export class PpsAPage implements OnInit {
 				return mess;
 			}))
 		);
+		setTimeout(()=>{
+			this.scrollToElement();
+			this.messageList.subscribe(_ =>{
+				this.scrollToElement();
+			})
+		},3000);
 	}
+	
+	public scrollToElement() { 
+		this.scroll.scrollToBottom(500);
+ 	}
+
 
 	private getTypeOfUser(): string {
 		return this.route.snapshot.paramMap.get('typeOfUser');
@@ -59,10 +74,4 @@ export class PpsAPage implements OnInit {
 		else
 			return false;
 	}
-
-	public orderListByDate(): void {
-		this.messageList
-	} 
-
-
 }

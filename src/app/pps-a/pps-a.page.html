@@ -4,7 +4,9 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content class="background-img" >
+
+
+ <ion-content class="background-img" #content>
 	<ion-list *ngFor="let message of messageList | async">
 		<ion-item  class="list" *ngIf = "message.curse && !consultUser(message.user)">
 			<ion-label>
@@ -19,8 +21,8 @@
 				<p>{{message.date}}</p> 
 			</ion-label>
 		</ion-item>
-    </ion-list>
-</ion-content>
+	</ion-list>
+</ion-content> 
 
 
 <ion-footer [formGroup]="ppsaForms">
@@ -31,7 +33,7 @@
 					<ion-input  class="background-img" placeholder="Escriba su texto" type="text" formControlName="message"></ion-input>
 				</ion-col>
 				<ion-col size=2>
-					<ion-button class="background-buttom-top" type="submit" color="primary" (click)="add()">
+					<ion-button class="background-buttom-top" type="submit" color="primary" (click)="add()" [disabled]="!ppsaForms.valid">
 						<img  src="assets/enviar.png">
 					</ion-button>
 				</ion-col>

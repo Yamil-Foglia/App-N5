@@ -7,6 +7,7 @@ export class Message {
     public user: string;
     public curse: boolean;
     public date: string;
+    public firebaseTimestamp: number;
 
     constructor(){}
 
@@ -16,9 +17,8 @@ export class Message {
         mes.user = user;
         mes.curse = curse;
         mes.date = Helpers.dateOfString();
+        mes.firebaseTimestamp = Date.now();
         
         return mes;
     }
-
-
 }
