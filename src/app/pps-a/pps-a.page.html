@@ -7,7 +7,7 @@
 
 
  <ion-content class="background-img" #content>
-	<ion-list *ngFor="let message of messageList | async">
+	<ion-list class="background-img" *ngFor="let message of messageList | async">
 		<ion-item  class="list" *ngIf = "message.curse && !consultUser(message.user)">
 			<ion-label>
 				<h4>{{message.user}}</h4> 
@@ -30,7 +30,7 @@
 		<ion-grid>
 			<ion-row>
 				<ion-col size=10 >		
-					<ion-input  class="background-img" placeholder="Escriba su texto" type="text" formControlName="message"></ion-input>
+					<ion-input id="chatppsa" class="background-img" placeholder="Escriba su texto" type="text" formControlName="message"></ion-input>
 				</ion-col>
 				<ion-col size=2>
 					<ion-button class="background-buttom-top" type="submit" color="primary" (click)="add()" [disabled]="!ppsaForms.valid">

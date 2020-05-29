@@ -56,6 +56,8 @@ export class PpsBPage implements OnInit {
 	}
 
 	public add(): void {
+		let chatppsb = (<HTMLInputElement>document.getElementById("chatppsb"));
+		chatppsb.value = "";
 		this.service.add(this.build());
 	}
 

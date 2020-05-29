@@ -57,6 +57,8 @@ export class PpsAPage implements OnInit {
 	}
 
 	public add(): void {
+		let chatppsa = (<HTMLInputElement>document.getElementById("chatppsa"));
+		chatppsa.value = "";
         this.service.add(this.build());
 	}
 
